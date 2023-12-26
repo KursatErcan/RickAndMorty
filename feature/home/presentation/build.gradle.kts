@@ -3,7 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-  id("androidx.navigation.safeargs.kotlin")}
+    id("androidx.navigation.safeargs.kotlin")
+}
 
 android {
     namespace = "com.enes.feature.home.presentation"
@@ -25,7 +26,7 @@ android {
             )
         }
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
     compileOptions {
@@ -40,6 +41,9 @@ android {
 dependencies {
     implementation(projects.navigation)
     implementation(projects.common.presentation)
+    implementation(projects.common.data)
+    implementation(projects.feature.home.domain)
+
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")

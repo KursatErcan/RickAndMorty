@@ -3,7 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-  id("androidx.navigation.safeargs.kotlin")}
+    id("androidx.navigation.safeargs.kotlin")
+}
 
 android {
     namespace = "com.enes.common.presentation"
@@ -25,7 +26,7 @@ android {
             )
         }
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
     compileOptions {
@@ -53,4 +54,6 @@ dependencies {
     val nav_version = "2.7.6"
     api("androidx.navigation:navigation-fragment-ktx:$nav_version")
     api("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    api("io.coil-kt:coil:2.5.0")
 }

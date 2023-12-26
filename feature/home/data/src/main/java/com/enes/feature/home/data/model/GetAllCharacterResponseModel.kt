@@ -25,14 +25,15 @@ data class Result(
     var status: String?,
     var type: String?,
     var url: String?
-) {
-    data class Location(
-        var name: String?,
-        var url: String?
-    )
+)
 
-    data class Origin(
-        var name: String?,
-        var url: String?
-    )
-}
+data class Location(
+    var name: String?,
+    var url: String?
+)
+
+data class Origin(
+    var name: String?,
+    var url: String?
+)
+

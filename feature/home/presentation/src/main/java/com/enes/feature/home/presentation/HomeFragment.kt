@@ -1,37 +1,31 @@
 package com.enes.feature.home.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.fragment.navArgs
+import androidx.fragment.app.viewModels
+import com.enes.common.presentation.BaseFragment
+import com.enes.common.presentation.utils.viewBinding
 import com.enes.feature.home.presentation.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentHomeBinding.inflate(layoutInflater)
-        return binding.root
-    }
+class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
+    override val binding by viewBinding(FragmentHomeBinding::bind)
+    override val viewModel: HomeViewModel by viewModels()
+
+    private val characterListAdapter by lazy{CharacterListAdapter()}
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getAllCharacters()
         bindUI()
     }
 
     private fun bindUI() {
-        binding.apply {
-            button.setOnClickListener {
+        binding.rvCharacterList.adapter = characterListAdapter
 
-            }
+        viewModel.characterList.observe(viewLifecycleOwner) {
+            characterListAdapter.submitList(it)
         }
     }
 }
