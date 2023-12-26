@@ -35,7 +35,6 @@ android {
 }
 
 dependencies {
-
     api("com.google.dagger:hilt-android:2.49")
     ksp("com.google.dagger:hilt-android-compiler:2.49")
 }

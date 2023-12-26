@@ -27,5 +27,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         viewModel.characterList.observe(viewLifecycleOwner) {
             characterListAdapter.submitList(it)
         }
+
+        characterListAdapter.setItemClickListener {
+            //findNavController().navigate(HomeFragmentDirections.)
+        }
     }
 }

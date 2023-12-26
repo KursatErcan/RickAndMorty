@@ -3,7 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-  id("androidx.navigation.safeargs.kotlin")}
+    id("androidx.navigation.safeargs.kotlin")
+}
 
 android {
     namespace = "com.enes.feature.detail.presentation"
@@ -37,12 +38,7 @@ android {
 dependencies {
     implementation(projects.navigation)
     implementation(projects.common.presentation)
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
     implementation("com.google.dagger:hilt-android:2.49")
     ksp("com.google.dagger:hilt-android-compiler:2.49")
     val nav_version = "2.7.6"
